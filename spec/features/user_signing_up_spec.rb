@@ -4,8 +4,8 @@
 
 feature 'New users can sign up' do
   scenario 'A user can sign up' do
-    visit '/'
-    click_button('Sign Up')
+    visit '/home'
+    click_on('Sign Up')
     fill_in("email", with: "johndoe@example.com")
     fill_in('password', with: 'Password123')
     click_button('Sign Up')
