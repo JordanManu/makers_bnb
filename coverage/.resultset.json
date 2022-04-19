@@ -1,0 +1,54 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/michaelsu/week9/makers_bnb/spec/features/description_on_space_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/michaelsu/week9/makers_bnb/spec/features/name_on_space_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/michaelsu/week9/makers_bnb/spec/features/price_on_space_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/michaelsu/week9/makers_bnb/spec/spaces_spec.rb": {
+        "lines": [
+
+        ]
+      }
+    },
+    "timestamp": 1650384930
+  }
+}
