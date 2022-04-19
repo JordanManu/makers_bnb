@@ -7,12 +7,19 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
-    'Hello World!'
+    erb(:index)
   end
 
-  get '/home' do
-    p 'is this working'
-    erb :'home'
+  get '/users/new' do
+    erb(:'users/new')
+  end
+
+  post '/users' do
+    redirect '/spaces'
+  end
+
+  get '/spaces' do
+    erb(:spaces)
   end
 
   run! if app_file == $0

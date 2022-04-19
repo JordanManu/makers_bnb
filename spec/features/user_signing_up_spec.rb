@@ -4,11 +4,12 @@
 
 feature 'New users can sign up' do
   scenario 'A user can sign up' do
-    visit '/home'
+    visit '/'
     click_on('Sign Up')
+    expect(current_path).to eq '/users/new'
     fill_in("email", with: "johndoe@example.com")
     fill_in('password', with: 'Password123')
-    click_button('Sign Up')
+    click_on('Sign Up')
 
     expect(current_path).to eq '/spaces'
     expect(page).to have_content "Welcome johndoe@example.com!"
