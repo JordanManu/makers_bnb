@@ -1,1 +1,7 @@
-<p>Welcome johndoe@example.com!</p>
+<% if @user %>
+  <p>Welcome johndoe@example.com!</p>
+<% end %>
+
+<form action = '/sessions/destroy' method = 'post'>
+  <input type = 'submit' name = 'Sign Out'/>
+</form>
