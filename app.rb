@@ -23,7 +23,7 @@ class MakersBnB < Sinatra::Base
   get '/spaces' do
     # call up the session, and its id
     # Calls up the right user
-    erb(:spaces) #Welcome ... tak the user information fro the user in the session.
+    erb(:spaces) #Welcome... take the user information fro the user in the session.
   end
 
   run! if app_file == $0
