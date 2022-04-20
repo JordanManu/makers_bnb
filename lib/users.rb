@@ -1,5 +1,6 @@
 require 'bcrypt'
 require_relative './database_connection'
+require_relative './space'
 
 class User
   def self.create(email:, password:)
@@ -30,13 +31,26 @@ class User
     User.new(id: result[0]['id'], email: result[0]['email'])
   end
 
-  attr_reader :id, :email
+  attr_reader :id, :email, :spaces
 
   def initialize(id:, email:)
     @id = id
     @email = email
+    @spaces = []
   end
 
-  def list_space(space)
+  def spaces_listed
+    result = DatabaseConnection.query(
+      "SELECT * FROM spaces WHERE user_id = #{@id};"
+    )
+    result.map do |space| 
+      Space.new(
+        id: space['id'], 
+        name: space['name'], 
+        price: space['price'], 
+        description: space['description'],
+        user_id: space['user_id']
+     )
+    end
   end
 end
