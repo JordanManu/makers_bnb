@@ -36,4 +36,7 @@ class User
     @id = id
     @email = email
   end
+
+  def list_space(space)
+  end
 end

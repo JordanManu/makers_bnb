@@ -1,7 +1,7 @@
 require 'space'
 
 describe Space do 
-  let(:space) { Space.new(id: 1, name: 'Strawberry Fields Cottage', price: "£", description: "Strawberry Fields Cottage is a") }
+  let(:space) { Space.create( name: 'Strawberry Fields Cottage', price: "100.00", description: "Strawberry Fields Cottage is a") }
     context "#name" do
       it "knows its name" do 
         expect(space.name).to eq "Strawberry Fields Cottage"
@@ -16,7 +16,7 @@ describe Space do
 
     context "#price" do
       it "Has a price" do
-        expect(space.price).to eq "£"
+        expect(space.price).to eq '100.00'
       end
     end
 

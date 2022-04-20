@@ -25,5 +25,14 @@ describe User do
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email
     end
-  end  
+  end
+
+  describe 'list_space' do
+    it 'user can list a space they own' do
+      user = User.create(email: 'test@example.com', password: 'password123')
+      space = double(user_id: user.id)
+      user.list_space(space)
+      expect(space.user_id).to eq user.id
+    end
+  end
 end
