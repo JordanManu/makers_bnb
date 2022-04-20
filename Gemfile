@@ -10,7 +10,7 @@ gem "capybara"
 gem "webrick"
 gem "pg"
 gem "bcrypt"
-
+gem 'byebug'
 
 group :development, :test do 
   gem "launchy"

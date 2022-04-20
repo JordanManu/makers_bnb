@@ -1,4 +1,5 @@
 require 'database_connection'
+require 'byebug'
 
 describe DatabaseConnection do
   describe '.setup' do
@@ -16,8 +17,8 @@ describe DatabaseConnection do
   describe '.query' do
     it 'executes a query via PG' do
       connection = DatabaseConnection.setup('makersbnb_test')
-      expect(connection).to receive(:exec_params).with("SELECT * FROM peeps;", [])
-      DatabaseConnection.query("SELECT * FROM peeps;")
+      expect(connection).to receive(:exec_params).with("SELECT * FROM users;", [])
+      DatabaseConnection.query("SELECT * FROM users;")
     end
   end
 end
