@@ -15,12 +15,13 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users' do
-    # take the params and .create the user.
-    # create session for the use with its id
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/spaces'
   end
 
   get '/spaces' do
+    @user = User.find(session[:user_id])
     # call up the session, and its id
     # Calls up the right user
     erb(:spaces) #Welcome... take the user information fro the user in the session.
