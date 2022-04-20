@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 
+require './database_connection_setup'
 require_relative './lib/users'
 require_relative './lib/database_connection'
 
