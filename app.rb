@@ -1,10 +1,10 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
-
-require './database_connection_setup'
 require_relative './lib/users'
 require_relative './lib/database_connection'
+# require_relative './connect_to_database'
+require './database_connection_setup'
 
 class MakersBnB < Sinatra::Base
 
@@ -14,6 +14,8 @@ class MakersBnB < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+
+  register Sinatra::Flash
 
   get '/' do
     erb(:index)
@@ -35,6 +37,11 @@ class MakersBnB < Sinatra::Base
     erb(:spaces) #Welcome... take the user information fro the user in the session.
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = "You have signed out."
+    redirect '/'
+
   get '/sessions/new' do
     erb :"sessions/new"
   end
@@ -48,6 +55,7 @@ class MakersBnB < Sinatra::Base
       flash[:notice] = 'Please check your email or password.'
       redirect '/sessions/new'
     end
+
   end
 
   run! if app_file == $0
