@@ -65,5 +65,14 @@ class MakersBnB < Sinatra::Base
     end
   end
 
+  get '/spaces/availability/new' do
+    @spaces = Space.all
+    erb :"spaces/availability/new"
+  end
+
+  post 'spaces/availabilities' do
+    #Availability.create(space: params[:space], date: params[:date])
+  end
+
   run! if app_file == $0
 end
