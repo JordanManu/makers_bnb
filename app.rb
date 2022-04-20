@@ -41,6 +41,7 @@ class MakersBnB < Sinatra::Base
     session.clear
     flash[:notice] = "You have signed out."
     redirect '/'
+  end
 
   get '/sessions/new' do
     erb :"sessions/new"
@@ -55,7 +56,6 @@ class MakersBnB < Sinatra::Base
       flash[:notice] = 'Please check your email or password.'
       redirect '/sessions/new'
     end
-
   end
 
   run! if app_file == $0
