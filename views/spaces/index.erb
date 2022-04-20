@@ -1,13 +1,23 @@
-<form action = '/spaces' method = 'post'>
-  <label for start_date> Start Date: </label>
-  <input type='date' id = start_date name = 'start_date' min='01/01/2022' max = '31/12/2027'/>
+<form action = '/spaces/new' method = 'post'
+  <label for name> Name: </label>
+  <input type='text' id = name name = 'name'/>
   <br>
-  <label for end_date> End Date: </label>
-  <input type='date' id = end_date name = 'end_date' min='01/01/2022' max = '31/12/2027'/>
+  <label for price> Price: </label>
+  <input type='number' id = price name = 'price'/>
   <br>
-  <label for location> Location: </label>
-  <input type='text' id = location name = 'location'/>
+  <label for description> Description: </label>
+  <input type='text' id = description name = 'description'/>
   <br>
-  <input type='submit' name = 'Submit'>
+  <input type='submit' name = 'New Listing'>
 </form>
+
+<% @spaces.each do |space| %>
+   <%= space.name %>
+   <br>
+   <%= space.price %>
+   <br>
+   <%= space.description %>
+   <br>
+<% end %>
+
 

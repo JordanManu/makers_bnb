@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/flash'
+require_relative './connect_to_database'
+require_relative './lib/space'
 
 class MakersBnB < Sinatra::Base
   configure :development do
@@ -16,20 +18,16 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
+    @spaces = Space.all
    erb(:'spaces/index')
   end
 
-  post '/spaces' do
-    start_date = params[:start_date]
-    end_date = params[:end_date]
-    location = params[:location]
-    redirect '/spaces/search_result'
-  end
-
-  get '/spaces/search_result' do
-    "Description: Strawberry Fields Cottage is a \n
-    Price: £"
-    
+  post '/spaces/new' do
+    name = params[:name]
+    price = params[:price]
+    description = params[:description]
+    Space.create(name: name, price: price, description: description)
+    redirect '/spaces'
   end
 
   run! if app_file == $0
