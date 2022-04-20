@@ -1,12 +1,17 @@
-<form action="spaces/availabilities" method="post">
+<form action="/spaces/availability/new" method="post">
+  <label>Select your space:</label>
   <select id="space" name="space">
-      <option value="Strawberry Fields Cottage">Strawberry Fields Cottage</option>
-    <option value="Another">Another</option>
+  <% @spaces.each do |space| %>
+    <option value="<%= space.name %>"><%= space.name %></option>
+    <% end %>
   </select>
-    
+  <br>
   <label>Date available:</label>
   <input type="date" name="date"/>
-
+  <br>
   <input type="submit" value="Submit">
-
 </form>
+
+<h2>
+<%= flash[:notice] %>
+</h2>

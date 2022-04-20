@@ -5,6 +5,7 @@ require_relative './lib/users'
 require_relative './lib/space'
 require_relative './lib/database_connection'
 require './database_connection_setup'
+require_relative './lib/availability'
 
 
 class MakersBnB < Sinatra::Base
@@ -65,13 +66,15 @@ class MakersBnB < Sinatra::Base
     end
   end
 
-  get '/spaces/availability/new' do
+  get '/spaces/availability' do
     @spaces = Space.all
     erb :"spaces/availability/new"
   end
 
-  post 'spaces/availabilities' do
-    #Availability.create(space: params[:space], date: params[:date])
+  post '/spaces/availability/new' do
+    Availability.create(space: params[:space], date: params[:date])
+    flash[:notice] = "Availability for #{params[:space]} has been added for #{params[:date]}"
+    redirect '/spaces/availability'
   end
 
   run! if app_file == $0
