@@ -2,9 +2,10 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require_relative './lib/users'
+require_relative './lib/space'
 require_relative './lib/database_connection'
-# require_relative './connect_to_database'
 require './database_connection_setup'
+
 
 class MakersBnB < Sinatra::Base
 
@@ -15,10 +16,22 @@ class MakersBnB < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  register Sinatra::Flash
-
   get '/' do
     erb(:index)
+  end
+
+  get '/spaces' do
+    @user = User.find(session[:user_id])
+    @spaces = Space.all
+   erb(:'spaces/index')
+  end
+
+  post '/spaces/new' do
+    name = params[:name]
+    price = params[:price]
+    description = params[:description]
+    Space.create(name: name, price: price, description: description)
+    redirect '/spaces'
   end
 
   get '/users/new' do
@@ -27,14 +40,8 @@ class MakersBnB < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email], password: params[:password])
-    p @user
     session[:user_id] = @user.id
     redirect '/spaces'
-  end
-
-  get '/spaces' do
-    @user = User.find(session[:user_id])
-    erb(:spaces) #Welcome... take the user information fro the user in the session.
   end
 
   post '/sessions/destroy' do

@@ -3,11 +3,15 @@ require 'byebug'
 
 describe DatabaseConnection do
   describe '.setup' do
-    it 'sets up a connection to a databse through PG' do
+    it 'sets up a connection to a database through PG' do
       expect(PG).to receive(:connect).with(dbname: 'makersbnb_test')
       DatabaseConnection.setup('makersbnb_test')
     end
 
+    it 'this connection is persistent' do
+      connection = DatabaseConnection.setup('makersbnb_test')
+      expect(DatabaseConnection.connection).to eq connection
+    end
   end
 
   describe '.query' do
@@ -17,5 +21,4 @@ describe DatabaseConnection do
       DatabaseConnection.query("SELECT * FROM users;")
     end
   end
-
 end
