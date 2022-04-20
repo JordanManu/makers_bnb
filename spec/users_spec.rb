@@ -5,6 +5,9 @@ describe User do
         email: 'johndoe@example.com',
         password: 'Password123'
       )
+
+      expect(user).to be_a User
+      expect(user.email).to eq 'johndoe@example.com'
     end
   end
 end
