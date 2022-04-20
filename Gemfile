@@ -10,5 +10,6 @@ gem 'capybara'
 gem 'pg'
 gem 'bcrypt'
 gem 'webrick'
+gem 'byebug'
 
 # gem "rails"
