@@ -27,4 +27,14 @@ describe Space do
         expect(Space.all.length).to eq 2
       end
     end
+
+    context "#.create" do
+      it "Creates a new listing" do
+        space = Space.create(name: 'Blueberry Fields', price: '200.00', description: 'Fields Cottage')
+
+        expect(space.name).to eq 'Blueberry Fields'
+        expect(space.price).to eq '200.00'
+        expect(space.description).to eq 'Fields Cottage'
+      end
+    end
 end
