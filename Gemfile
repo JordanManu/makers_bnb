@@ -8,5 +8,6 @@ gem 'rspec'
 gem 'capybara'
 gem 'pg'
 gem 'bcrypt'
+gem 'sinatra-flash'
 
 # gem "rails"

@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 
 require './database_connection_setup'
 require_relative './lib/users'
@@ -8,6 +9,7 @@ require_relative './lib/database_connection'
 class MakersBnB < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   configure :development do
     register Sinatra::Reloader
