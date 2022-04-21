@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/availability_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/availability_spec.rb": {
         "lines": [
           1,
           1,
@@ -26,9 +26,7 @@
           1,
           1,
           null,
-          0,
-          0,
-          0,
+          1,
           0,
           0,
           null,
@@ -36,7 +34,7 @@
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/database_helper.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/database_helper.rb": {
         "lines": [
           1,
           1,
@@ -47,7 +45,7 @@
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/database_connection_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/database_connection_spec.rb": {
         "lines": [
           1,
           1,
@@ -75,7 +73,7 @@
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/features/authentication_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/features/authentication_spec.rb": {
         "lines": [
           1,
           1,
@@ -116,7 +114,7 @@
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/features/available_dates_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/features/available_dates_spec.rb": {
         "lines": [
           1,
           null,
@@ -137,13 +135,13 @@
           1,
           1,
           null,
-          0,
+          1,
           null,
           null,
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/features/description_on_space_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/features/description_on_space_spec.rb": {
         "lines": [
           1,
           1,
@@ -157,7 +155,7 @@
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/features/name_on_space_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/features/name_on_space_spec.rb": {
         "lines": [
           1,
           1,
@@ -171,7 +169,7 @@
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/features/price_on_space_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/features/price_on_space_spec.rb": {
         "lines": [
           1,
           1,
@@ -185,7 +183,7 @@
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/features/user_sign_out_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/features/user_sign_out_spec.rb": {
         "lines": [
           1,
           1,
@@ -200,7 +198,7 @@
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/features/user_signing_up_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/features/user_signing_up_spec.rb": {
         "lines": [
           null,
           null,
@@ -221,7 +219,7 @@
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/spaces_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/spaces_spec.rb": {
         "lines": [
           1,
           null,
@@ -275,7 +273,7 @@
           null
         ]
       },
-      "/Users/jordanmanu/Makers-course/Week-5/makers_bnb/spec/users_spec.rb": {
+      "/Users/almorcrette/coding/projects/makers_bnb/spec/users_spec.rb": {
         "lines": [
           1,
           1,
@@ -309,6 +307,6 @@
         ]
       }
     },
-    "timestamp": 1650540312
+    "timestamp": 1650541347
   }
 }
