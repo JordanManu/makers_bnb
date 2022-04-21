@@ -43,8 +43,13 @@ class MakersBnB < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email], password: params[:password])
+    if @user
     session[:user_id] = @user.id
     redirect '/spaces'
+    else
+      flash[:notice] = "Email already in use"
+      redirect '/users/new'
+    end
   end
 
   post '/sessions/destroy' do

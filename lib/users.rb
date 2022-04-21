@@ -5,6 +5,10 @@ require_relative './space'
 class User
   def self.create(email:, password:)
     encrypted_password = BCrypt::Password.create(password)
+    exist = DatabaseConnection.query(
+      "SELECT * FROM users WHERE email = $1;", [email]
+    )
+    return nil if exist.any?
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email;",
       [email, encrypted_password]
