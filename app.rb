@@ -73,9 +73,8 @@ class MakersBnB < Sinatra::Base
 
   post '/spaces/availability/new' do
     space = Space.find_by_name(name: params[:space]) # return the id of the space with that name
-    p params[:date]
-    Availability.create(space_id: space.id, date: params[:date])
-    flash[:notice] = "Availability for #{params[:space]} has been added for #{params[:date]}"
+    Availability.create_period(params[:start_date], params[:end_date], space_id: space.id)
+    flash[:notice] = "Availability for #{params[:space]} has been added for #{params[:start_date]} to #{params[:end_date]}"
     redirect '/spaces/availability'
   end
 
