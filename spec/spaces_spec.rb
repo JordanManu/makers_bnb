@@ -37,4 +37,14 @@ describe Space do
         expect(space.description).to eq 'Fields Cottage'
       end
     end
+
+    context "#.find_by_name" do
+      it "finds the space id from the space name" do
+        space = Space.create(name: 'Blueberry Fields', price: '200.00', description: 'Fields Cottage')
+        result = Space.find_by_name(name: 'Blueberry Fields')
+
+        expect(result.name).to eq space.name
+        expect(result.id).to eq space.id
+      end
+    end
 end

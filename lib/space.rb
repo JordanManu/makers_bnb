@@ -37,4 +37,17 @@ class Space
     )
   end
 
+  def self.find_by_name(name:)
+    return nil unless name
+    result = DatabaseConnection.query(
+      "SELECT * FROM spaces WHERE name = $1;",
+      [name]
+    )
+    Space.new(
+      id: result[0]['id'], 
+      name: result[0]['name'], 
+      price: result[0]['price'], 
+      description: result[0]['description']
+    )
+  end
 end
