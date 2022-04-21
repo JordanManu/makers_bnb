@@ -27,4 +27,19 @@ describe Availability do
       
     end
   end
+
+  describe '.available?' do
+    it 'knows if there is a availability for a space on a certain date' do
+      availability = Availability.create(space_id: space.id, date: "2022-05-15")
+      expect(Availability.available?(date: "2022-05-15", space_id: space.id))
+    end
+  end
+
+  describe '.remove' do
+    it 'removes the availability from the database' do
+      availability = Availability.create(space_id: space.id, date: "2022-05-15")
+      Availability.remove(id: availability.id)
+      expect(Availability.available?(date: "2022-05-15", space_id: space.id)).to eq false
+    end
+  end
 end
