@@ -13,6 +13,7 @@ describe Availability do
       persisted_data = persisted_data(table: :availability, id: availability.id)
 
       expect(availability).to be_a Availability
+      p availability.id
       expect(availability.id).to eq persisted_data.first['id']
       expect(availability.date).to eq "2022-05-15"
     end

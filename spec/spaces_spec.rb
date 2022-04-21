@@ -47,4 +47,5 @@ describe Space do
         expect(result.id).to eq space.id
       end
     end
+    
 end
