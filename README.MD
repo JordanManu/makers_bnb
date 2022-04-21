@@ -1,23 +1,60 @@
-# Title of project
+# Makers BnB
 
-Brief description of what the project is
+Makers BnB allows users to create an account and host their space. Users can also request to book spaces for particular date/s. 
 
-## Getting started
+## How to Use
 
-`git clone path-to-your-repo`
-`command_to_install_dependencies` (e.g. `bundle`)
+- Clone this repo to your local machine.
+- Then, run 'bundle install' to install the required gems.
+- After, follow the instructions in 'db/migrations' to setup the database.
+- To run the program, run 'rackup' in your terminal and visit 'localhost:9292'.
 
-## Usage
-
-`command_to_start` (e.g. `rackup` or `rails s`)
-Navigate to `http://localhost:4567/`
-
+- You can sign up and create an account which enables you to host a space
+- If you prefer not to sign up, you can view all available spaces by visiting 'localhost:9292/spaces/show'.
 
 ## Running tests
 
 `test_command` (e.g. `rspec`)
 
-## File manifest
+## User Stories
+
+``` 
+As a potential user
+So that i can use the app as a host or a guest,
+I want to sign up for MakersBnB
+
+As a host
+So that I can list places as me
+I want to log in to MakersBnB
+
+As a host
+So that I can avoid others listing and accepting requests as me
+I want to log out to MakersBnB
+
+As a host,
+so that people know what they're going to get,
+I want to provide a short description of the place.
+
+As a host
+So that I can control how much to charge
+I want to include a price per night
+
+As a host
+So that my space is easily identifiable, I want to add a name to my space.
+I want to add a name on my space
+
+As a Host,
+So that I can offer more than one space,
+I would like to be able to list multiple places
+
+As a host, 
+So that I can be effecient,
+I would like to add multiple available dates at once
+
+As a Host,
+So that renters know when the place is rentable,
+I would like to include the dates the place is available
+```
 
 ----------------------------------------------
 
