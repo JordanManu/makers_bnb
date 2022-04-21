@@ -5,6 +5,7 @@ require_relative './lib/users'
 require_relative './lib/space'
 require_relative './lib/database_connection'
 require './database_connection_setup'
+require_relative './lib/availability'
 
 
 class MakersBnB < Sinatra::Base
@@ -71,6 +72,29 @@ class MakersBnB < Sinatra::Base
       flash[:notice] = 'Please check your email or password.'
       redirect '/sessions/new'
     end
+  end
+
+  get '/spaces/availability' do
+    @spaces = Space.all
+    erb :"spaces/availability/new"
+  end
+
+  post '/spaces/availability/new' do
+    space = Space.find_by_name(name: params[:space]) # return the id of the space with that name
+    Availability.create_period(start_date: params[:start_date], end_date: params[:end_date], space_id: space.id)
+    flash[:notice] = "Availability for #{params[:space]} has been added for #{params[:start_date]} to #{params[:end_date]}"
+    redirect '/spaces/availability'
+  end
+
+  get '/spaces/:id' do
+    @space = DatabaseConnection.query(
+      "SELECT * FROM spaces WHERE id = $1;", [params[:id]]
+    )
+    availability = DatabaseConnection.query(
+      "SELECT * FROM availability WHERE space_id = $1;", [params[:id]]
+    )
+    @availability = availability.sort_by { |hash| hash['date'] }
+    erb(:"spaces/show")
   end
 
   run! if app_file == $0
