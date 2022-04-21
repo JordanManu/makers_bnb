@@ -16,6 +16,17 @@ describe User do
       expect(user.id).to eq persisted_data.first['id']
       expect(user.email).to eq 'johndoe@example.com'
     end
+    it 'does not create a user if email already in use' do
+      user = User.create(
+        email: 'johndoe@example.com',
+        password: 'Password123'
+      )
+      user2 = User.create(
+        email: 'johndoe@example.com',
+        password: 'password123'
+      )
+      expect(user2).to eq nil
+    end
   end
 
   describe '.find' do
@@ -25,21 +36,6 @@ describe User do
   
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email
-    end
-  end
-
-  describe 'list_space' do
-    it 'user can list a space they own' do
-      user = User.create(email: 'test@example.com', password: 'password123')
-      space = Space.create(name: 'test', price: 1, description: 'test2', user_id: user.id)
-      expect(space.user_id).to eq user.id
-    end
-
-    it 'user can have multiple spaces listed at the same' do
-      user = User.create(email: 'test@example.com', password: 'password123')
-      space = Space.create(name: 'test', price: 1, description: 'test2', user_id: user.id)
-      space2 = Space.create(name: 'test2', price: 1, description: 'test', user_id: user.id)
-      expect(user.spaces_listed.length).to eq 2
     end
   end
 end

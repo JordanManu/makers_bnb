@@ -37,4 +37,16 @@ describe Space do
         expect(space.description).to eq 'Fields Cottage'
       end
     end
+
+    context "#.spaces_listed" do
+      it "Knows which user the space belongs to" do
+        space = Space.create(name: 'Blueberry Fields', price: '200.00', description: 'Fields Cottage', user_id: 1)
+        expect(space.user_id).to eq "1"
+      end
+      it "Multiple spaces can belong to the same user" do
+        space = Space.create(name: 'Blueberry Fields', price: '200.00', description: 'Fields Cottage', user_id: 1)
+        space2 = Space.create(name: 'Blueberry Farm', price: '210.00', description: 'Fields Cottages', user_id: 1)
+        expect(Space.spaces_listed(1).length).to eq 2
+      end
+    end
 end

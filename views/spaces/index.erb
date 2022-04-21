@@ -1,6 +1,5 @@
 <% if @user %>
 Welcome <%= @user.email %>! 
-<% end %>
 
 <form action = '/spaces/new' method = 'post'
   <label for name> Name: </label>
@@ -27,3 +26,4 @@ Welcome <%= @user.email %>!
 <form action = '/sessions/destroy' method = 'post'>
 <input type = 'submit' value = 'Sign Out'>
 </form>
+<% end %>

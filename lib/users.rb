@@ -5,6 +5,10 @@ require_relative './space'
 class User
   def self.create(email:, password:)
     encrypted_password = BCrypt::Password.create(password)
+    exist = DatabaseConnection.query(
+      "SELECT * FROM users WHERE email = $1;", [email]
+    )
+    return nil if exist.any?
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email;",
       [email, encrypted_password]
@@ -37,20 +41,5 @@ class User
     @id = id
     @email = email
     @spaces = []
-  end
-
-  def spaces_listed
-    result = DatabaseConnection.query(
-      "SELECT * FROM spaces WHERE user_id = #{@id};"
-    )
-    result.map do |space| 
-      Space.new(
-        id: space['id'], 
-        name: space['name'], 
-        price: space['price'], 
-        description: space['description'],
-        user_id: space['user_id']
-     )
-    end
   end
 end
