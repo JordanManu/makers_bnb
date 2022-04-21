@@ -1,5 +1,6 @@
 <%= @space[0]['name'] %>
-<% flash[:notice] %>
+<br>
+<%= flash[:notice] %>
 
 <%if @user %>
   <% if @user.id == @space[0]['user_id'] %>
