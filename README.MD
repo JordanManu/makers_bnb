@@ -48,7 +48,7 @@ So that I can offer more than one space,
 I would like to be able to list multiple places
 
 As a host, 
-So that I can be effecient,
+So that I can be efficient,
 I would like to add multiple available dates at once
 
 As a Host,
