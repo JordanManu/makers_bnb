@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Availability
 
   attr_reader :space_id, :date, :id 
