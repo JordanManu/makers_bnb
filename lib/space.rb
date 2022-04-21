@@ -40,4 +40,19 @@ class Space
     )
   end
 
+  def self.spaces_listed(id)
+    result = DatabaseConnection.query(
+      "SELECT * FROM spaces WHERE user_id = #{id};"
+    )
+    result.map do |space| 
+      Space.new(
+        id: space['id'], 
+        name: space['name'], 
+        price: space['price'], 
+        description: space['description'],
+        user_id: space['user_id']
+     )
+    end
+  end
+
 end

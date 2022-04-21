@@ -38,19 +38,4 @@ class User
     @email = email
     @spaces = []
   end
-
-  def spaces_listed
-    result = DatabaseConnection.query(
-      "SELECT * FROM spaces WHERE user_id = #{@id};"
-    )
-    result.map do |space| 
-      Space.new(
-        id: space['id'], 
-        name: space['name'], 
-        price: space['price'], 
-        description: space['description'],
-        user_id: space['user_id']
-     )
-    end
-  end
 end
