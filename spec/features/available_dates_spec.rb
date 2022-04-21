@@ -17,7 +17,7 @@ feature 'Adding available dates' do
     fill_in "end_date", :with => "2022/06/30"
     click_button 'Submit'
 
-    expect(page).to have_content "Availability for Alexis pad has been added 2022/05/28 to 2022/06/30"
+    expect(page).to have_content "Availability for Alexis pad has been added for 2022/05/28 to 2022/06/30"
 
   end
 end
