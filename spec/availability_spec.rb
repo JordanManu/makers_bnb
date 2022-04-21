@@ -9,11 +9,10 @@ describe Availability do
     it 'creates a new availability' do
 
       availability = Availability.create(space_id: space.id, date: "2022-05-15")
-      p availability.id
-      persisted_data = persisted_data(table: 'availability', id: availability.id)
+      p availability.date
+      persisted_data = persisted_data(table: :availability, id: availability.id)
 
       expect(availability).to be_a Availability
-      byebug
       expect(availability.id).to eq persisted_data.first['id']
       expect(availability.date).to eq "2022-05-15"
     end
