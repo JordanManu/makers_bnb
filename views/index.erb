@@ -1,5 +1,50 @@
 <%= flash[:notice] %>
 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+  position: relative;
+}
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.3;
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+
+<div class="topright">
+<form action = '/spaces' method = 'get'>
+<input type = 'submit' value = 'Spaces'>
+</form>
+</nav>
+</div>
+
+</body>
+</html>
+
+<center><h1>Sign up to MakersBnB</h1>
 <form action='/users/new'>
   <input type='submit' value='Sign Up'/>
 </form>
+<br>
+<br>
+<h1>Already a member? Sign in below!</h1>
+<br>
+<form action='/sessions/new'>
+  <input type='submit' value='Sign in'/>
+</form>
+

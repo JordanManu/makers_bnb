@@ -1,3 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+  position: relative;
+}
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.3;
+}
+form {
+    display: inline;
+}
+</style>
+</head>
+<body>
+<div class="topright">
+<% if @user %>
+<form action = '/sessions/destroy' method = 'post'>
+<input type = 'submit' value = 'Sign Out'>
+</form>
+<% else %>
+<form action='/users/new'>
+  <input type='submit' value='Sign Up'/>
+</form>
+<form action='/sessions/new'>
+  <input type='submit' value='Sign in'/>
+</form>
+<% end %>
+</div>
+</body>
+</html>
+
+
 <% if @user %>
 Welcome <%= @user.email %>! 
 <% end %>
@@ -22,8 +67,9 @@ Welcome <%= @user.email %>!
    <br>
    Description: <%= space.description %>
    <br>
+   <form action='/spaces/<%= space.id %>' method="get" >
+   <input type="submit" value="View">
+   </form>
 <% end %>
 
-<form action = '/sessions/destroy' method = 'post'>
-<input type = 'submit' value = 'Sign Out'>
-</form>
+

@@ -2,6 +2,40 @@
   <h1>Welcome <%= @user.email %>!</h1>
 <% end %>
 
-<form action = '/sessions/destroy' method = 'post'>
-  <input type = 'submit' value ='Sign Out'/>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+  position: relative;
+}
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.3;
+}
+form {
+    display: inline;
+}
+</style>
+</head>
+<body>
+<div class="topright">
+<form action = '/spaces' method = 'get'>
+<input type = 'submit' value = 'Spaces'>
 </form>
+<form action = '/sessions/destroy' method = 'post'>
+<input type = 'submit' value = 'Sign Out'>
+</form>
+</div>
+
+</body>
+</html>

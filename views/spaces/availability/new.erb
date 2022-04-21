@@ -1,3 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+  position: relative;
+}
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.3;
+}
+form {
+    display: inline;
+}
+</style>
+</head>
+<body>
+<div class="topright">
+<form action = '/spaces' method = 'get'>
+<input type = 'submit' value = 'Spaces'>
+</form>
+<form action = '/sessions/destroy' method = 'post'>
+<input type = 'submit' value = 'Sign Out'>
+</form>
+</div>
+
+</body>
+</html>
+
 <form action="/spaces/availability/new" method="post">
   <label>Select your space:</label>
   <select id="space" name="space">
@@ -11,6 +49,7 @@
   <br>
   <label>End Date:</label>
   <input type="date" name="end_date" data-date-format="yyyy/mm/dd" />
+  <br>
   <input type="submit" value="Submit">
 </form>
 
