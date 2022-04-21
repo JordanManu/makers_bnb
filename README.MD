@@ -90,3 +90,5 @@ As a host,
 so that i have more options on who can book my place,
 I would my place to be available until i can approve the request
 ```
+## Domain Mapping 
+![Screenshot](https://imgur.com/qf8yTFI.png)
