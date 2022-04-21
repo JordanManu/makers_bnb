@@ -1,6 +1,6 @@
 class Availability
 
-  attr_reader :space_id, :date, :id
+  attr_reader :space_id, :date, :id 
 
   def initialize(id:, space_id:, date:)
     @id = id
