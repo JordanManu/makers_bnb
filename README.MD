@@ -1,5 +1,5 @@
 ```
-*                 )       (    (               )        
+                 )       (    (               )        
  (  `     (       ( /(       )\ ) )\ )     (   ( /(    (   
  )\))(    )\      )\()) (   (()/((()/(   ( )\  )\()) ( )\  
 ((_)()\((((_)(  |((_)\  )\   /(_))/(_))  )((_)((_)\  )((_) 
@@ -72,3 +72,21 @@ I would like to include the dates the place is available
 ## Screenshots
 
 ## User Stories to be added
+
+```
+As a host
+So that I have control of who rents my place
+I want to be able to approve (or decline) a request for a booking
+
+As a user,
+so that I have a place to stay,
+I want to request a space to hire for one night.
+
+As a Host,
+So that my place will not be double booked,
+I would like the place to not be available to be booked on that date once a request has been approved on that date.
+
+As a host,
+so that i have more options on who can book my place,
+I would my place to be available until i can approve the request
+```
