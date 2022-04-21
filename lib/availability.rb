@@ -53,4 +53,10 @@ class Availability
     end
   end
 
+  def self.find(date, space_id)
+    result = DatabaseConnection.query(
+      "SELECT * FROM availability WHERE date = $1 AND space_id = $2", [date, space_id]
+    )
+  end
+
 end
