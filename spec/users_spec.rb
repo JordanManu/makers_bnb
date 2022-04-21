@@ -1,4 +1,5 @@
 require_relative '../lib/users'
+require 'space'
 require 'database_helper'
 
 describe User do
@@ -15,6 +16,17 @@ describe User do
       expect(user.id).to eq persisted_data.first['id']
       expect(user.email).to eq 'johndoe@example.com'
     end
+    it 'does not create a user if email already in use' do
+      user = User.create(
+        email: 'johndoe@example.com',
+        password: 'Password123'
+      )
+      user2 = User.create(
+        email: 'johndoe@example.com',
+        password: 'password123'
+      )
+      expect(user2).to eq nil
+    end
   end
 
   describe '.find' do
@@ -25,5 +37,5 @@ describe User do
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email
     end
-  end  
+  end
 end
