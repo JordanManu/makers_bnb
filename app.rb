@@ -100,9 +100,9 @@ class MakersBnB < Sinatra::Base
 
   post '/spaces/availability/:id' do # availability (date) id (space_id)
     availability = Availability.find(params['availability'], params['id'])
-    Availability.remove(id: availability[0].id)
+    Availability.remove(id: availability[0]['id'])
     flash[:notice] = "You have deleted the availability on '#{params[:availability]}'"
-    redirect '/spaces/:id'
+    redirect "/spaces/#{params[:id]}"
   end
 
   run! if app_file == $0
