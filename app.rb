@@ -78,5 +78,16 @@ class MakersBnB < Sinatra::Base
     redirect '/spaces/availability'
   end
 
+  get '/spaces/:id' do
+    @space = DatabaseConnection.query(
+      "SELECT * FROM spaces WHERE id = $1;", [params[:id]]
+    )
+    availability = DatabaseConnection.query(
+      "SELECT * FROM availability WHERE space_id = $1;", [params[:id]]
+    )
+    @availability = availability.sort_by { |hash| hash['date'] }
+    erb(:"spaces/show")
+  end
+
   run! if app_file == $0
 end
