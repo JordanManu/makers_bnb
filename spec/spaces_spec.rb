@@ -40,7 +40,7 @@ describe Space do
 
     context "#.find_by_name" do
       it "finds the space id from the space name" do
-        space = Space.create(name: 'Blueberry Fields', price: '200.00', description: 'Fields Cottage')
+        space = Space.create(name: 'Blueberry Fields', price: '200.00', description: 'Fields Cottage', user_id: 2)
         result = Space.find_by_name(name: 'Blueberry Fields')
 
         expect(result.name).to eq space.name
