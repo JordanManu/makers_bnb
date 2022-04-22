@@ -14,6 +14,7 @@ feature 'Request' do
     click_button('Sign in')
     fill_in :email, with: "janedoe@example.com"
     fill_in :password, with: "Password123"
+    click_button('Sign in')
     click_button('View')
     select "2022-04-21", :from => "availability"
     click_button('Request')
