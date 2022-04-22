@@ -76,7 +76,11 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/availability' do
-    @spaces = Space.all
+    if @user
+      @spaces = Space.spaces_listed(session[:user_id])
+    else
+      @spaces = []
+    end
     erb :"spaces/availability/new"
   end
 
