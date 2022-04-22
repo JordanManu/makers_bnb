@@ -1,10 +1,23 @@
 <%= flash[:notice] %>
-<p style="background-image: url('https://cdn.pixabay.com/photo/2017/08/27/10/16/interior-2685521_960_720.jpg');">
 <!DOCTYPE html>
 <html>
 <head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+.container {
+  position: relative;
+  font-family: Arial;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 70px;
+  right: 120px;
+  background-color: white;
+  color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -49,33 +62,27 @@ img {
   height: auto;
   opacity: 0.3;
 }
-body  {
-  background-image: url("https://cdn.pixabay.com/photo/2017/08/27/10/16/interior-2685521_960_720.jpg");
-}
 </style>
 </head>
 <body>
 <div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="#news">Sign up</a>
-  <a href="#contact">Sign in</a>
-  <a href="/spaces">Spaces</a>
+  <a class="/" href="#home">Home</a>
+  <a href="/users/new">Sign up</a>
+  <a href="/sessions/new">Sign in</a>
 </div>
-</nav>
+
+<div class="container">
+<img src="https://cdn.pixabay.com/photo/2017/08/27/10/16/interior-2685521_960_720.jpg" alt="Interior" style="width:100%;">
+  <div class="text-block">
+
+  <center><h1>Welcome to Makers BnB!</h1>
+  <h2>View our amazing places to stay</h2>
+  <form action='/spaces'>
+    <input type='submit' value='Spaces'/>
+  </form>
+  </div>
 </div>
+
+</center>
 
 </body>
-</html>
-
-<center><h1>Sign up to MakersBnB</h1>
-<form action='/users/new'>
-  <input type='submit' value='Sign Up'/>
-</form>
-<br>
-<br>
-<h1>Already a member? Sign in below!</h1>
-<br>
-<form action='/sessions/new'>
-  <input type='submit' value='Sign in'/>
-</form>
-
