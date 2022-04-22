@@ -52,7 +52,7 @@ form {
       <input type = "submit" value = "Remove">
     </form>
 <% else %>
-  <form>
+  <form action = "/spaces/availability/request/<%= @space[0]['id'] %>" method ='post'>
   <input list = "availabilities" id = "availability" name = "availability"/>
   <datalist id ="availabilities">
   <% @availability.each do |availability| %>
