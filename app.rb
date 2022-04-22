@@ -23,7 +23,9 @@ class MakersBnB < Sinatra::Base
 
   get '/spaces' do
     @user = User.find(session[:user_id])
-    @spaces = Space.all
+    if @user 
+    @spaces = Space.spaces_listed(session[:user_id])
+    end
    erb(:'spaces/index')
   end
 
@@ -31,7 +33,8 @@ class MakersBnB < Sinatra::Base
     name = params[:name]
     price = params[:price]
     description = params[:description]
-    Space.create(name: name, price: price, description: description)
+    user_id = session[:user_id]
+    Space.create(name: name, price: price, description: description, user_id: user_id)
     redirect '/spaces'
   end
 
@@ -41,8 +44,13 @@ class MakersBnB < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email], password: params[:password])
+    if @user
     session[:user_id] = @user.id
     redirect '/spaces'
+    else
+      flash[:notice] = "Email already in use"
+      redirect '/users/new'
+    end
   end
 
   post '/sessions/destroy' do

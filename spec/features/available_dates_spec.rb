@@ -10,7 +10,7 @@ feature 'Adding available dates' do
   # end
 
   scenario 'The host can provde a period with start and end dates to create availability' do
-    space = Space.create(name: 'Alexis pad', price: '150', description: 'Beautiful')
+    space = Space.create(name: 'Alexis pad', price: '150', description: 'Beautiful', user_id:2)
     visit '/spaces/availability'
     select "Alexis pad", :from => "space"
     fill_in "start_date", :with => "2022/05/28"

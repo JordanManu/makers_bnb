@@ -1,10 +1,15 @@
 #for monica
 require 'bcrypt'
 require_relative './database_connection'
+require_relative './space'
 
 class User
   def self.create(email:, password:)
     encrypted_password = BCrypt::Password.create(password)
+    exist = DatabaseConnection.query(
+      "SELECT * FROM users WHERE email = $1;", [email]
+    )
+    return nil if exist.any?
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email;",
       [email, encrypted_password]
@@ -31,10 +36,11 @@ class User
     User.new(id: result[0]['id'], email: result[0]['email'])
   end
 
-  attr_reader :id, :email
+  attr_reader :id, :email, :spaces
 
   def initialize(id:, email:)
     @id = id
     @email = email
+    @spaces = []
   end
 end
