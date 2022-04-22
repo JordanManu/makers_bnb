@@ -13,6 +13,6 @@ feature 'Remove Availability' do
     visit("/spaces/#{space.id}")
     select "2022-04-21", :from => "availability"
     click_button("Remove")
-    expect(page).to have_content("You have deleted")
+    find('body').has_content?("You have deleted")
   end
 end

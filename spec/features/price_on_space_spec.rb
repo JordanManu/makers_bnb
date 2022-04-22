@@ -9,6 +9,6 @@ feature 'Space has price' do
     fill_in :price, with: "150.00"
     fill_in :description, with: "Strawberry Fields Cottage is a"
     click_button('New Listing')
-    expect(page).to have_content('Price: £150.00')
+    find('body').has_content?('Price: £150.00')
   end
 end

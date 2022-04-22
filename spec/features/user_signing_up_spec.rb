@@ -12,7 +12,7 @@ feature 'New users can sign up' do
     click_on('Sign Up')
  
     expect(current_path).to eq '/spaces'
-    expect(page).to have_content "Welcome johndoe@example.com!"
+    find('body').has_content? "Welcome johndoe@example.com!"
   end
 
   scenario 'User cannot sign up if email already in use' do
@@ -26,6 +26,6 @@ feature 'New users can sign up' do
     click_on('Sign Up')
 
     expect(current_path).to eq '/users/new'
-    expect(page).to have_content "Email already in use"
+    find('body').has_content? "Email already in use"
   end
 end

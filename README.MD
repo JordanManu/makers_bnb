@@ -21,7 +21,7 @@ Makers BnB allows users to create an account and host their space. Users can als
 - To run the program, run 'rackup' in your terminal and visit 'localhost:9292'.
 
 - You can sign up and create an account which enables you to host a space
-- If you prefer not to sign up, you can view all available spaces by visiting 'localhost:9292/spaces/show'.
+- If you prefer not to sign up, you can view all available spaces by visiting 'localhost:9292/spaces'.
 
 ## Running tests
 

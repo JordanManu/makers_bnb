@@ -26,6 +26,7 @@ class MakersBnB < Sinatra::Base
     if @user 
     @spaces = Space.spaces_listed(session[:user_id])
     end
+    @all_spaces = Space.all
    erb(:'spaces/index')
   end
 
@@ -75,7 +76,11 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/availability' do
-    @spaces = Space.all
+    if @user
+      @spaces = Space.spaces_listed(session[:user_id])
+    else
+      @spaces = []
+    end
     erb :"spaces/availability/new"
   end
 
@@ -102,6 +107,18 @@ class MakersBnB < Sinatra::Base
     availability = Availability.find(params['availability'], params['id'])
     Availability.remove(id: availability[0]['id'])
     flash[:notice] = "You have deleted the availability on '#{params[:availability]}'"
+    redirect "/spaces/#{params[:id]}"
+  end
+
+  post '/spaces/availability/request/:id' do
+    space = DatabaseConnection.query(
+      "SELECT * FROM spaces WHERE id = $1;", [params[:id]]
+    )
+    host_id = space[0]['user_id']
+    host = DatabaseConnection.query(
+      "SELECT * FROM users WHERE id = $1;", [host_id]
+    )
+    flash[:notice] = "Please email the host at #{host[0]['email']}."
     redirect "/spaces/#{params[:id]}"
   end
 

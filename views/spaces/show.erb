@@ -39,7 +39,7 @@ form {
 <%= @space[0]['name'] %>
 <br>
 <%= flash[:notice] %>
-
+<br>
 <%if @user %>
   <% if @user.id == @space[0]['user_id'] %>
     <form action = "/spaces/availability/<%= @space[0]['id'] %>" method ='post' >
@@ -52,7 +52,7 @@ form {
       <input type = "submit" value = "Remove">
     </form>
 <% else %>
-  <form>
+  <form action = "/spaces/availability/request/<%= @space[0]['id'] %>" method ='post'>
   <input list = "availabilities" id = "availability" name = "availability"/>
   <datalist id ="availabilities">
   <% @availability.each do |availability| %>
