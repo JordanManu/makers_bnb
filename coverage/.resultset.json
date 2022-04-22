@@ -9,7 +9,7 @@
           null,
           1,
           null,
-          2,
+          4,
           null,
           1,
           1,
@@ -30,6 +30,21 @@
           null,
           null,
           null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null
@@ -139,6 +154,25 @@
           1,
           null,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -182,6 +216,28 @@
         "lines": [
           1,
           1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/michaelsu/week9/makers_bnb/spec/features/remove_availability_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
           1,
           1,
           1,
@@ -358,6 +414,7 @@
         ]
       }
     },
-    "timestamp": 1650554023
+
+    "timestamp": 1650559490
   }
 }

@@ -90,11 +90,19 @@ class MakersBnB < Sinatra::Base
     @space = DatabaseConnection.query(
       "SELECT * FROM spaces WHERE id = $1;", [params[:id]]
     )
+    @user = User.find(session[:user_id])
     availability = DatabaseConnection.query(
       "SELECT * FROM availability WHERE space_id = $1;", [params[:id]]
     )
     @availability = availability.sort_by { |hash| hash['date'] }
     erb(:"spaces/show")
+  end
+
+  post '/spaces/availability/:id' do # availability (date) id (space_id)
+    availability = Availability.find(params['availability'], params['id'])
+    Availability.remove(id: availability[0]['id'])
+    flash[:notice] = "You have deleted the availability on '#{params[:availability]}'"
+    redirect "/spaces/#{params[:id]}"
   end
 
   run! if app_file == $0

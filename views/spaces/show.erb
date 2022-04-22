@@ -1,15 +1,20 @@
 <%= @space[0]['name'] %>
-
-<% @availability.each do |availability| %>
-  <br>
-  <%= availability['date'] %>
-  <input type="submit" value="Request" />
-<% end %>
-
 <br>
-<br>
+<%= flash[:notice] %>
 
-<form>
+<%if @user %>
+  <% if @user.id == @space[0]['user_id'] %>
+    <form action = "/spaces/availability/<%= @space[0]['id'] %>" method ='post' >
+      <input list = "availabilities" id = "availability" name = "availability"/>
+      <datalist id ="availabilities">
+        <% @availability.each do |availability| %>
+        <option value = "<%= availability['date'] %>"> </option>
+        <% end %>
+      </datalist>
+      <input type = "submit" value = "Remove">
+    </form>
+<% else %>
+  <form>
   <input list = "availabilities" id = "availability" name = "availability"/>
   <datalist id ="availabilities">
   <% @availability.each do |availability| %>
@@ -17,4 +22,14 @@
   <% end %>
   </datalist>
   <input type = "submit" value = "Request">
-</form>
+  </form>
+  <% end %>
+<% else %> 
+  <input list = "availabilities" id = "availability" name = "availability"/>
+    <datalist id ="availabilities">
+    <% @availability.each do |availability| %>
+      <option value = "<%= availability['date'] %>"> </option>
+    <% end %>
+    </datalist>
+  </form>
+<% end %>
