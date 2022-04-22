@@ -1,9 +1,14 @@
+<body style="background-color:powderblue;">
 <h2>
   <%= flash[:notice] %>
 </h2>
+<center><h1> Sign In! </h1>
 
 <form action="/sessions" method="post">
   <input type="email" name="email" />
+  <br>
   <input type="password" name="password" />
+  <br>
   <input type="submit" value="Sign in" />
 </form>
+</center>

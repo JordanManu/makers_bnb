@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<body style="background-color:powderblue;">
 <head>
 <style>
 .container {
@@ -31,9 +32,12 @@ img {
 </html>
 
 <%= flash[:notice] %>
-
+<center><h1> Sign Up </h1>
 <form action="/users" method="post">
   <input type="email" name="email" placeholder="email" />
+  <br>
   <input type= "password" name="password" placeholder="password" />
+  <br>
   <input type='submit' value='Sign Up'/>
 </form>
+</center>

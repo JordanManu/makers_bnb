@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<body style="background-color:powderblue;">
 <head>
 <style>
 .container {
@@ -36,7 +37,8 @@ form {
 </body>
 </html>
 
-<%= @space[0]['name'] %>
+<center><h1> Select Which Date You Would Like To Book </h1>
+<h2><%= @space[0]['name'] %></h2>
 <br>
 <%= flash[:notice] %>
 <br>
@@ -71,3 +73,4 @@ form {
     </datalist>
   </form>
 <% end %>
+</center>
