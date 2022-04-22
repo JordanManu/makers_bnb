@@ -1,81 +1,38 @@
-<%= flash[:notice] %>
-<p style="background-image: url('https://cdn.pixabay.com/photo/2017/08/27/10/16/interior-2685521_960_720.jpg');">
 <!DOCTYPE html>
+
 <html>
+<%= flash[:notice] %>
+
 <head>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #ffffff;
-  color: black;
-}
-.container {
-  position: relative;
-}
-
-.topright {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-  font-size: 18px;
-}
-
-img { 
-  width: 100%;
-  height: auto;
-  opacity: 0.3;
-}
-body  {
-  background-image: url("https://cdn.pixabay.com/photo/2017/08/27/10/16/interior-2685521_960_720.jpg");
-}
-</style>
+  <title>Maker's BnB Homepage</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-<div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="#news">Sign up</a>
-  <a href="#contact">Sign in</a>
-  <a href="/spaces">Spaces</a>
+
+<div class="top">
+  <div class="logo">
+  </div>
+  <div class="sign-up">
+    <form action='/users/new'>
+      <input type='submit' value='Sign Up'/>
+    </form>
+  </div>
+  <div class="sign-in">
+    <form action='/sessions/new'>
+      <input type='submit' value='Sign in'/>
+    </form>
+  </div>
 </div>
-</nav>
+
+
+<div class="middle">
+  <p>Check out our amazing spaces</p>
+  <form action = '/spaces' method = 'get'>
+  <input type = 'submit' value = 'Spaces'>
+  </form>
 </div>
+
 
 </body>
-</html>
-
-<center><h1>Sign up to MakersBnB</h1>
-<form action='/users/new'>
-  <input type='submit' value='Sign Up'/>
-</form>
-<br>
-<br>
-<h1>Already a member? Sign in below!</h1>
-<br>
-<form action='/sessions/new'>
-  <input type='submit' value='Sign in'/>
-</form>
 
