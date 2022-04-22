@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<body style="background-color:powderblue;">
 <head>
 <style>
 .container {
@@ -35,7 +36,7 @@ form {
 
 </body>
 </html>
-
+<center><h1> Insert Space Availability Below </h1>
 <form action="/spaces/availability/new" method="post">
   <label>Select your space:</label>
   <select id="space" name="space">
@@ -52,6 +53,7 @@ form {
   <br>
   <input type="submit" value="Submit">
 </form>
+</center>
 
 <h2>
 <%= flash[:notice] %>
