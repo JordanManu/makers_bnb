@@ -106,8 +106,7 @@ class MakersBnB < Sinatra::Base
     redirect "/spaces/#{params[:id]}"
   end
 
-  post 'spaces/availability/request/:id' do
-    p params
+  post '/spaces/availability/request/:id' do
     space = DatabaseConnection.query(
       "SELECT * FROM spaces WHERE id = $1;", [params[:id]]
     )
@@ -115,9 +114,8 @@ class MakersBnB < Sinatra::Base
     host = DatabaseConnection.query(
       "SELECT * FROM users WHERE id = $1;", [host_id]
     )
-    @host = host[0]
-    flash[:notice] = "Please email the host at #{@host.email}."
-    redirect "/spaces/:id"
+    flash[:notice] = "Please email the host at #{host[0]['email']}."
+    redirect "/spaces/#{params[:id]}"
   end
 
   run! if app_file == $0
