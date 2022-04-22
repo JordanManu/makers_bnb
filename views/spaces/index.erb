@@ -26,6 +26,9 @@ form {
 </head>
 <body>
 <div class="topright">
+<form action = '/spaces/availability' method = 'get'>
+<input type = 'submit' value = 'Create Availability'>
+</form>
 <% if @user %>
 <form action = '/sessions/destroy' method = 'post'>
 <input type = 'submit' value = 'Sign Out'>
@@ -45,7 +48,7 @@ form {
 
 <% if @user %>
 Welcome <%= @user.email %>! 
-
+<br>
 <form action = '/spaces/new' method = 'post'
   <label for name> Name: </label>
   <input type='text' id = name name = 'name'/>
@@ -59,7 +62,9 @@ Welcome <%= @user.email %>!
   <input type='submit' name = 'New Listing'>
 </form>
 <% end %>
-
+<br>
+Your spaces:
+<br>
 <% @spaces.each do |space| %>
    <%= space.name %>
    <br>
@@ -69,6 +74,23 @@ Welcome <%= @user.email %>!
    <br>
    <form action='/spaces/<%= space.id %>' method="get" >
    <input type="submit" value="View">
+   <br>
    </form>
 <% end %>
+<br>
+All spaces:
+<br>
+<% @all_spaces.each do |space| %>
+  <%= space.name %>
+  <br>
+  Price: £<%= space.price %>
+  <br>
+  Description: <%= space.description %>
+  <br>
+  <form action='/spaces/<%= space.id %>' method="get" >
+  <input type="submit" value="View">
+  <br>
+  </form>
+<% end %>
+
 

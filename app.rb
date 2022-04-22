@@ -26,6 +26,7 @@ class MakersBnB < Sinatra::Base
     if @user 
     @spaces = Space.spaces_listed(session[:user_id])
     end
+    @all_spaces = Space.all
    erb(:'spaces/index')
   end
 

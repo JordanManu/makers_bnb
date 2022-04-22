@@ -39,7 +39,7 @@ form {
 <%= @space[0]['name'] %>
 <br>
 <%= flash[:notice] %>
-
+<br>
 <%if @user %>
   <% if @user.id == @space[0]['user_id'] %>
     <form action = "/spaces/availability/<%= @space[0]['id'] %>" method ='post' >
