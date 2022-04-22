@@ -26,10 +26,10 @@
 </head>
 <body>
 <div class="topright">
+<% if @user %>
 <form action = '/spaces/availability' method = 'get'>
 <input type = 'submit' value = 'Create Availability'>
 </form>
-<% if @user %>
 <form action = '/sessions/destroy' method = 'post'>
 <input type = 'submit' value = 'Sign Out'>
 </form>
