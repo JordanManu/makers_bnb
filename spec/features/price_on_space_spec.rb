@@ -1,7 +1,6 @@
 feature 'Space has price' do
   scenario 'Each space will show the price of 1 night' do
-    visit('/')
-    click_button('Sign Up')
+    visit('/users/new')
     fill_in :email, with: "test@example.com"
     fill_in :password, with: "password123"
     click_button('Sign Up')

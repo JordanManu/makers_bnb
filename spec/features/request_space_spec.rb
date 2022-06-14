@@ -10,7 +10,7 @@ feature 'Request' do
     )
     space = Space.create(name: 'John Does space', price: '150', description: 'Beautiful', user_id: user.id)
     availability = Availability.create(space_id: space.id, date: "2022-04-21")
-    visit('/')
+    visit('/sessions/new')
     click_button('Sign in')
     fill_in :email, with: "janedoe@example.com"
     fill_in :password, with: "Password123"

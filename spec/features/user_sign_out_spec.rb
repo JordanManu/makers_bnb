@@ -1,7 +1,6 @@
 feature 'Sign Out' do
   scenario 'User can sign out of their account' do
-    visit '/'
-    click_on('Sign Up')
+    visit('/users/new')
     fill_in("email", with: "johndoe@example.com")
     fill_in('password', with: 'Password123')
     click_on('Sign Up')

@@ -1,7 +1,6 @@
 feature 'Space has name' do
   scenario 'Each space will show the name of the space' do
-    visit('/')
-    click_button('Sign Up')
+    visit('/users/new')
     fill_in :email, with: "test@example.com"
     fill_in :password, with: "password123"
     click_button('Sign Up')
